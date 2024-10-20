@@ -1,13 +1,17 @@
 package com.mediateca.modelo;
 
+import java.sql.Time;
+
 public class DVD extends Producto {
     private String director;
-    private int duracion;
+    private Time duracion; // Cambiado a Time
+    private String genero; // Añadido el campo 'genero'
 
-    public DVD(int idProducto, String titulo, double precio, int unidadesDisponibles, String estado, String director, int duracion) {
-        super(idProducto, titulo, precio, unidadesDisponibles, estado);
+    public DVD(int idProducto, String codigoIdentificacion, String director, Time duracion, String genero) {
+        super(idProducto, codigoIdentificacion); // Llama al constructor de la clase base
         this.director = director;
         this.duracion = duracion;
+        this.genero = genero; // Inicializa el nuevo campo 'genero'
     }
 
     // Getters y setters
@@ -19,11 +23,19 @@ public class DVD extends Producto {
         this.director = director;
     }
 
-    public int getDuracion() {
+    public Time getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(int duracion) {
+    public void setDuracion(Time duracion) {
         this.duracion = duracion;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 }

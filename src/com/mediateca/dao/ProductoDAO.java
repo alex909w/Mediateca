@@ -17,7 +17,7 @@ public class ProductoDAO {
 
         try {
             connection = ConexionBD.getConnection();
-            String sql = "SELECT * FROM Producto";
+            String sql = "SELECT * FROM Productos"; // Cambiar a 'Productos'
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
 
@@ -27,8 +27,9 @@ public class ProductoDAO {
                 double precio = resultSet.getDouble("precio");
                 int unidadesDisponibles = resultSet.getInt("unidades_disponibles");
                 String estado = resultSet.getString("estado");
+           
 
-                Producto producto = new Producto(idProducto, titulo, precio, unidadesDisponibles, estado);
+                Producto producto = new Producto(idProducto, titulo, precio, unidadesDisponibles, estado); // Incluir idTipoProducto
                 productos.add(producto);
             }
         } catch (SQLException e) {
@@ -48,12 +49,12 @@ public class ProductoDAO {
 
         try {
             connection = ConexionBD.getConnection();
-            String sql = "INSERT INTO Producto (titulo, precio, unidades_disponibles, estado) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO Productos (titulo, precio, unidades_disponibles, id_tipo_producto, estado) VALUES (?, ?, ?, ?, ?)"; // Cambiar a 'Productos'
             statement = connection.prepareStatement(sql);
             statement.setString(1, producto.getTitulo());
             statement.setDouble(2, producto.getPrecio());
             statement.setInt(3, producto.getUnidadesDisponibles());
-            statement.setString(4, producto.getEstado());
+            statement.setString(5, producto.getEstado());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -70,13 +71,13 @@ public class ProductoDAO {
 
         try {
             connection = ConexionBD.getConnection();
-            String sql = "UPDATE Producto SET titulo = ?, precio = ?, unidades_disponibles = ?, estado = ? WHERE id_producto = ?";
+            String sql = "UPDATE Productos SET titulo = ?, precio = ?, unidades_disponibles = ?, id_tipo_producto = ?, estado = ? WHERE id_producto = ?"; // Cambiar a 'Productos'
             statement = connection.prepareStatement(sql);
             statement.setString(1, producto.getTitulo());
             statement.setDouble(2, producto.getPrecio());
             statement.setInt(3, producto.getUnidadesDisponibles());
-            statement.setString(4, producto.getEstado());
-            statement.setInt(5, producto.getIdProducto());
+            statement.setString(5, producto.getEstado());
+            statement.setInt(6, producto.getIdProducto());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -93,7 +94,7 @@ public class ProductoDAO {
 
         try {
             connection = ConexionBD.getConnection();
-            String sql = "DELETE FROM Producto WHERE id_producto = ?";
+            String sql = "DELETE FROM Productos WHERE id_producto = ?"; // Cambiar a 'Productos'
             statement = connection.prepareStatement(sql);
             statement.setInt(1, idProducto);
 

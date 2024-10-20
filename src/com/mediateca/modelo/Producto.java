@@ -2,9 +2,9 @@ package com.mediateca.modelo;
 
 public class Producto {
     private int idProducto;
-    private String titulo;
-    private double precio;
-    private int unidadesDisponibles;
+    String titulo;
+    double precio;
+    int unidadesDisponibles;
     private String estado;
 
     public Producto(int idProducto, String titulo, double precio, int unidadesDisponibles, String estado) {
@@ -13,6 +13,10 @@ public class Producto {
         this.precio = precio;
         this.unidadesDisponibles = unidadesDisponibles;
         this.estado = estado;
+    }
+
+    public Producto(int i, String text, double parseDouble, int parseInt, String text0, int parseInt0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // Getters y setters
@@ -55,4 +59,9 @@ public class Producto {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
