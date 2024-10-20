@@ -15,7 +15,7 @@ public class Producto {
         this.estado = estado;
     }
 
-    // Getters y Setters
+    // Getters y setters
     public int getIdProducto() {
         return idProducto;
     }
@@ -32,5 +32,27 @@ public class Producto {
         this.titulo = titulo;
     }
 
-    // Otros getters y setters...
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public int getUnidadesDisponibles() {
+        return unidadesDisponibles;
+    }
+
+    public void setUnidadesDisponibles(int unidadesDisponibles) {
+        this.unidadesDisponibles = unidadesDisponibles;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }
